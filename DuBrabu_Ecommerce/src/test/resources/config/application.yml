@@ -16,21 +16,6 @@
 spring:
   application:
     name: DuBrabuEcommerce
-  cloud:
-    stream:
-      kafka:
-        binder:
-          replicationFactor: 1
-          auto-create-topics: true
-        bindings:
-          binding-in-sse:
-            destination: sse-topic
-            content-type: text/plain
-            group: du-brabu-ecommerce
-          binding-out-sse:
-            destination: sse-topic
-            content-type: text/plain
-            group: du-brabu-ecommerce
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: test
@@ -41,9 +26,6 @@ spring:
     host: localhost
   main:
     allow-bean-definition-overriding: true
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
   messages:
     basename: i18n/messages
   task:
@@ -87,7 +69,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: ZmVjNGY1ZTNiY2JlNjUwZWYyMTE5MjVjNDFkMDVkMmM0MWU1ZGM0NWYyY2YyZDlkMTU2ODBlZDBiZmMyNDkxMjc1Y2JjODk5MWFiMTBlYWZhMGE1N2ViNDM5MGE1Zjk4ZmIzZmI3YzFiOWI4MWQ0MGUwMWZhYjc4N2Q3MGU1ZjY=
+        base64-secret: MDViNDdhOWVjOTQ0MjM5NTkyMTVlYmZhYzAyZTFjNTBjNzMxNTRiMzJlYjY1Y2RlOTYzMGUyZTgzZjY0MTk1N2E2MjVmOTVjM2E4YjNkNzY4MjM1YTZjNTRkNDZiMzkxN2M0ODEzZjA0YzQzN2JlMGZkNWQzZWQ4M2JiMjE3OGI=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
 

@@ -10,8 +10,8 @@
       // Use the -bullseye variants on local arm64/Apple Silicon.
       "VARIANT": "11",
       // Options
-      "INSTALL_MAVEN": "false",
-      "INSTALL_GRADLE": "true",
+      "INSTALL_MAVEN": "true",
+      "INSTALL_GRADLE": "false",
       "NODE_VERSION": "lts/*"
     }
   },

@@ -17,7 +17,7 @@ module.exports = async options =>
     mode: ENV,
     entry: ['./src/main/webapp/app/index'],
     output: {
-      path: utils.root('build/resources/main/static/'),
+      path: utils.root('target/classes/static/'),
       filename: '[name].[contenthash:8].js',
       chunkFilename: '[name].[chunkhash:8].chunk.js',
     },
@@ -45,7 +45,7 @@ module.exports = async options =>
     devServer: {
       hot: true,
       static: {
-        directory: './build/resources/main/static/',
+        directory: './target/classes/static/',
       },
       port: 9060,
       proxy: [
@@ -54,11 +54,6 @@ module.exports = async options =>
           target: `http${options.tls ? 's' : ''}://localhost:8080`,
           secure: false,
           changeOrigin: options.tls,
-        },
-        {
-          context: ['/websocket'],
-          target: 'ws://127.0.0.1:8080',
-          ws: true,
         },
       ],
       https: options.tls,

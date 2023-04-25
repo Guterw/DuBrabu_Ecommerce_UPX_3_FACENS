@@ -41,7 +41,6 @@ management:
             'loggers',
             'prometheus',
             'threaddump',
-            'caches',
             'liquibase',
           ]
   endpoint:
@@ -91,29 +90,11 @@ management:
             enabled: true
 
 spring:
-  autoconfigure:
-    exclude: org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration
   application:
     name: DuBrabuEcommerce
-  cloud:
-    stream:
-      kafka:
-        binder:
-          replicationFactor: 1
-          auto-create-topics: true
-          brokers: localhost:9092
-      bindings:
-        binding-in-sse:
-          destination: sse-topic
-          content-type: text/plain
-          group: du-brabu-ecommerce
-        binding-out-sse:
-          destination: sse-topic
-          content-type: text/plain
-          group: du-brabu-ecommerce
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
-    # Otherwise, it will be filled in by gradle when building the JAR file
+    # Otherwise, it will be filled in by maven when building the JAR file
     # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
     active: #spring.profiles.active#
     group:
@@ -124,37 +105,10 @@ spring:
         #- tls
   jmx:
     enabled: false
-  data:
-    jpa:
-      repositories:
-        bootstrap-mode: deferred
-  jpa:
-    open-in-view: false
-    properties:
-      hibernate.jdbc.time_zone: UTC
-      hibernate.id.new_generator_mappings: true
-      hibernate.connection.provider_disables_autocommit: true
-      hibernate.cache.use_second_level_cache: true
-      hibernate.cache.use_query_cache: false
-      hibernate.generate_statistics: false
-      # modify batch size as necessary
-      hibernate.jdbc.batch_size: 25
-      hibernate.order_inserts: true
-      hibernate.order_updates: true
-      hibernate.query.fail_on_pagination_over_collection_fetch: true
-      hibernate.query.in_clause_parameter_padding: true
-    hibernate:
-      ddl-auto: none
-      naming:
-        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
   messages:
     basename: i18n/messages
   main:
     allow-bean-definition-overriding: true
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
   task:
     execution:
       thread-name-prefix: du-brabu-ecommerce-task-
@@ -218,7 +172,7 @@ jhipster:
     license: unlicensed
     license-url:
   security:
-    content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
+    content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com data:"
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
