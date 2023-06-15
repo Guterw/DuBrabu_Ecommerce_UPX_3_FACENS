@@ -35,7 +35,17 @@ export const RegisterPage = () => {
   }, [successMessage]);
 
   return (
-    <div>
+  <>
+    <div className='Enquadramento' style={{
+      padding: 30,
+      height: 90,
+    }}></div>
+    <div style={{
+      backgroundColor: 'rgba(252, 163, 17, 0.99)',
+      padding: 30,
+      paddingBottom: 90,
+      textAlign: 'center'
+    }}>
       <Row className="justify-content-center">
         <Col md="8">
           <h1 id="register-title" data-cy="registerTitle">
@@ -124,6 +134,7 @@ export const RegisterPage = () => {
         </Col>
       </Row>
     </div>
+    </>
   );
 };
 

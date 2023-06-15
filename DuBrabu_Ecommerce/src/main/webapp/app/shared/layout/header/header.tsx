@@ -20,15 +20,8 @@ export interface IHeaderProps {
 }
 
 const Header = (props: IHeaderProps) => {
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const dispatch = useAppDispatch();
-
-  const handleLocaleChange = event => {
-    const langKey = event.target.value;
-    Storage.session.set('locale', langKey);
-    dispatch(setLocale(langKey));
-  };
 
   const renderDevRibbon = () =>
     props.isInProduction === false ? (
@@ -39,29 +32,42 @@ const Header = (props: IHeaderProps) => {
       </div>
     ) : null;
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
 
   return (
-    <div id="app-header">
+    <div id="app-header" >
       {renderDevRibbon()}
       <LoadingBar className="loading-bar" />
-      <Navbar data-cy="navbar" dark expand="md" fixed="top" className="bg-primary">
-        <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
+      <div className='navegado'>
+      <Navbar  fixed="top" className="junin" color=' #fca311'>
         <Brand />
-        <Collapse isOpen={menuOpen} navbar>
-          <Nav id="header-tabs" className="ms-auto" navbar>
-            <Home />
-            {props.isAuthenticated && <EntitiesMenu />}
-            {props.isAuthenticated && props.isAdmin && (
-              <AdminMenu showOpenAPI={props.isOpenAPIEnabled} showDatabase={!props.isInProduction} />
-            )}
-            <LocaleMenu currentLocale={props.currentLocale} onClick={handleLocaleChange} />
-            <AccountMenu isAuthenticated={props.isAuthenticated} />
-          </Nav>
-        </Collapse>
+        <div className='buttonHome'>
+          <a className='hometitle' href='/'>
+            <h5 className='hometitle'> Home</h5>
+          </a>
+        </div>
+        <div className='hometitle'>
+          <input className='pesquisar' placeholder='Pesquisar'>
+          </input>
+        </div>
+        <div className='buttonLogin'>
+          <a className='hometitle' href='/login'>
+            <h5 className='hometitle'>Login</h5>
+          </a>
+        </div>
+        <div className='buttonCarrinho'>
+          <a className='hometitle'>
+            <h5 className='hometitle'>Meu Carrinho</h5>
+          </a>
+        </div>
+        <div className='perfilFoto'>
+          <a>
+          <img className='foto'src='../../../../content/images/perfilFoto.svg'></img>
+        </a>
+        </div>
       </Navbar>
+      </div>
     </div>
   );
 };

@@ -1,55 +1,20 @@
-$header-color: #fff;
-$header-color-secondary: #bbb;
+$header-color:  #fca311;
+$header-color-secondary:  #fca311;
 $header-color-hover: darken($header-color, 20%);
 
 /* ==========================================================================
 Developement Ribbon
 ========================================================================== */
-.ribbon {
-  background-color: rgba(170, 0, 0, 0.5);
-  left: -3.5em;
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  overflow: hidden;
-  position: absolute;
-  top: 30px;
-  white-space: nowrap;
-  width: 15em;
-  z-index: 99999;
-  pointer-events: none;
-  opacity: 0.75;
-  a {
-    color: #fff;
-    display: block;
-    font-weight: 400;
-    margin: 1px 0;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 0 5px #444;
-    pointer-events: none;
-  }
-}
+
 
 /* ==========================================================================
 Navbar styles
 ========================================================================== */
-.navbar-brand {
-  overflow: hidden;
-}
 
-.jh-navbar .navbar-nav .nav-link {
-  padding-right: 0;
-  padding-left: 0;
-}
 
 .navbar-version {
   font-size: 10px;
   color: $header-color-secondary;
-  padding: 0 0 0 10px;
 }
 
 .brand-logo {
@@ -58,11 +23,11 @@ Navbar styles
   }
   .brand-icon {
     height: 35px;
-    width: auto;
-    display: inline-block;
     img {
-      height: 45px;
+      height: 80px;
     }
+    padding: 10px;
+    padding-bottom: 30px;
   }
 }
 
@@ -75,10 +40,45 @@ Navbar styles
   }
 }
 
-.loading-bar {
-  height: 3px;
-  background-color: #009cd8;
-  position: absolute;
-  top: 0px;
-  z-index: 1031;
+
+.junin {
+  background-color:  #fca311;
+  flex-direction: row;
+  display: -ms-inline-grid;
+  padding-bottom: 30px;
+  justify-content: left;
+  padding-right: 10px;
+}
+
+.navegado {
+  flex-direction: row;
+}
+
+.hometitle {
+  text-decoration: none;
+  padding-top: 30px;
+}
+
+.pesquisar {
+  height: 20px;
+  width: 300px;
+}
+
+.perfilFoto {
+  padding-right: 10px;
+  height: 50px;
+    img {
+      height: 70px;
+    }
+}
+
+.foto {
+  height: 60px;
+}
+
+@media  (max-width: 1000px) {
+  .pesquisar {
+    height: 25px;
+    width: 200px;
+  }
 }

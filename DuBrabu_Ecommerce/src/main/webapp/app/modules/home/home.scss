@@ -1,10 +1,19 @@
-/* ==========================================================================
-Main page styles
-========================================================================== */
-.hipster {
-  display: inline-block;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 60px;
   width: 100%;
-  height: 497px;
-  background: url('../../../content/images/jhipster_family_member_3.svg') no-repeat center top;
-  background-size: contain;
+  height: 100%;
+  background-color: #e1e1e1;
+  color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 75vw;
 }

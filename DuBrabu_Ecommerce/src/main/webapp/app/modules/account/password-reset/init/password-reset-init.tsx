@@ -29,7 +29,12 @@ export const PasswordResetInit = () => {
   }, [successMessage]);
 
   return (
-    <div>
+    <div style={{
+      backgroundColor: 'rgba(252, 163, 17, 0.99)',
+      padding: 30,
+      paddingBottom: 90,
+      textAlign: 'center'
+    }}>
       <Row className="justify-content-center">
         <Col md="8">
           <h1>
